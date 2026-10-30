@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O‘quv markazi · To‘lovlar</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><div><span class="eyebrow">O‘QUV MARKAZI</span><h1>To‘lovlar</h1></div><div class="month"><label for="month">Oy</label><input id="month" type="month"></div></header>
+    <section class="card"><div class="section-head"><div><span class="eyebrow">NAZORAT</span><h2>Qarzdorlar</h2></div><span id="debt-count" class="badge">0 ta</span></div>
+      <div class="table-wrap"><table><thead><tr><th>O‘quvchi</th><th>Guruh</th><th>To‘lov</th><th>Qarz</th></tr></thead><tbody id="debtors"></tbody></table></div><p id="empty-debt" class="empty" hidden>Bu oyda qarzdorlar yo‘q 🎉</p>
+    </section>
+    <section class="card"><div class="section-head"><div><span class="eyebrow">YANGI YOZUV</span><h2>To‘lov qo‘shish</h2></div></div>
+      <form id="payment-form"><label>O‘quvchi<select name="student_id" id="student-select" required></select></label><div class="form-row"><label>Summa (so‘m)<input name="amount" type="number" min="1" step="1" placeholder="500000" required></label><label>Sana<input name="date" id="payment-date" type="date" required></label></div><button>To‘lovni saqlash</button></form><p id="notice" role="status"></p>
+    </section>
+    <section class="card"><div class="section-head"><div><span class="eyebrow">RO‘YXAT</span><h2>O‘quvchilar</h2></div><button class="secondary" id="toggle-student">+ O‘quvchi</button></div>
+      <form id="student-form" class="student-form" hidden><h3 id="student-form-title">Yangi o‘quvchi</h3><input name="student_id" type="hidden"><label>Ism<input name="name" required maxlength="120"></label><div class="form-row"><label>Telefon<input name="phone" required maxlength="40" placeholder="+998 90 123 45 67"></label><label>Guruh<input name="group" required maxlength="80"></label></div><label>Oylik to‘lov (so‘m)<input name="monthly_fee" type="number" min="0" required></label><div class="form-actions"><button id="student-submit">O‘quvchini qo‘shish</button><button type="button" class="secondary" id="cancel-student">Bekor qilish</button></div></form>
+      <div id="students" class="students"></div>
+    </section>
+    <section class="card history-card" id="history-card" hidden><div class="section-head"><div><span class="eyebrow">TO‘LOV TARIXI</span><h2 id="history-title">O‘quvchi to‘lovlari</h2></div><button class="secondary" id="close-history">Yopish</button></div><div id="payment-history"></div></section>
+    <footer>Valyuta: so‘m · Ma’lumotlar SQLite’da saqlanadi</footer>
+  </main><script src="/static/app.js"></script>
+</body></html>
